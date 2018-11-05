@@ -15,10 +15,29 @@ const store = (function() {
   const hideCheckedItems = false;
   const searchTerm = '';
 
+  function findById(id) {
+    console.log(`findById ran`);
+    return store.items.find(id);
+  }
+
+  function addItem(name) {
+    try {
+      //validate name
+      Item.validateName(name);
+      //create the item & push it to items array
+      this.items.create.push(name);
+    }
+    catch(error) {
+      console.log(error.message);
+    }
+  }
+
   return {
     items,
     hideCheckedItems,
     searchTerm,
+    findById,
+    addItem,
   };
 
 }() );
