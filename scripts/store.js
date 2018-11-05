@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 /*eslint-env jquery*/
+// eslint-disable-next-line no-unused-vars
 /* global shoppingList, cuid */
 'use strict';
 // eslint-disable-next-line no-unused-vars
 const store = (function() {
-
+  const foo = 'bar';
   const items = [
     { id: cuid(), name: 'apples', checked: false },
     { id: cuid(), name: 'oranges', checked: false },
@@ -21,3 +22,6 @@ const store = (function() {
   };
 
 }() );
+
+console.log(store);
+console.log(foo);
