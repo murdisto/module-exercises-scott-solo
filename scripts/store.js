@@ -35,7 +35,7 @@ const store = (function() {
   }
 
   function findAndToggleChecked(id) {
-    const foundItem = this.items.findById(id);
+    const foundItem = this.findById(id);
     foundItem.checked = !foundItem.checked;
     // console.log('findAndToggleChecked ran');
   }
@@ -48,7 +48,7 @@ const store = (function() {
     try {
       Item.validateName(newName);
       const item = this.findById(id);
-      console.log(item)
+      console.log(item);
       item.name = newName;
     }catch(error) {
       console.log(`Cannot update name: ${error.message}`);
