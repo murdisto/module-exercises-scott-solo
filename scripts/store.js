@@ -20,7 +20,7 @@ const store = (function() {
     return this.items.find(item => item.id === id);
   }
 
-  // Inside store.js, make an addItem method, which accepts a name parameter. Use a try/catch block and the Item module 
+  // Inside store.js, make an addItem method, which accepts a name parameter. Use a try/catch block and the Item module
   // to validate the name and create the item, then push it to this.items.
   function addItem(name) {
     try {
@@ -40,25 +40,25 @@ const store = (function() {
     // console.log('findAndToggleChecked ran');
   }
 
-  // Make a findAndUpdateName method, which accepts id and newName parameters. 
-  // Use a try/catch to first validate the name and then use findById() 
-  // to fetch the item and update its name. 
+  // Make a findAndUpdateName method, which accepts id and newName parameters.
+  // Use a try/catch to first validate the name and then use findById()
+  // to fetch the item and update its name.
   // Inside catch, log out 'Cannot update name: {error.message}'
   function findAndUpdateName(id, newName) {
     try {
       Item.validateName(newName);
-      this.findById(id);
-      this.items.name = newName;
     }catch(error) {
       console.log(`Cannot update name: ${error.message}`);
     }
+    const itemId = this.findById(id);
+    this.items.itemId = newName;
   }
 
-  // Make a findAndDelete method, which accepts an id, and then removes the item from this.items. 
+  // Make a findAndDelete method, which accepts an id, and then removes the item from this.items.
   // (HINT: You can use array method .filter() or a combination of .findIndex() and .splice().)
   function findAndDelete(id) {
     this.items = this.items.filter(i => i.id !== id);
-  };
+  }
 
 
 
