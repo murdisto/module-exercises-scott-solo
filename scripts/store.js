@@ -47,11 +47,12 @@ const store = (function() {
   function findAndUpdateName(id, newName) {
     try {
       Item.validateName(newName);
+      const item = this.findById(id);
+      console.log(item)
+      item.name = newName;
     }catch(error) {
       console.log(`Cannot update name: ${error.message}`);
     }
-    const itemId = this.findById(id);
-    this.items.itemId = newName;
   }
 
   // Make a findAndDelete method, which accepts an id, and then removes the item from this.items.
