@@ -1,4 +1,4 @@
-/* global store, cuid */
+/* global Item, cuid */
 
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
@@ -56,7 +56,13 @@ const shoppingList = (function(){
   
   
   function addItemToShoppingList(itemName) {
-    store.items.push({ id: cuid(), name: itemName, checked: false });
+    try {
+      Item.validateName(name);
+      store.items.push({ id: cuid(), name: itemName, checked: false });
+    } catch(error) {
+      console.log(`'Cannot add item: ${error.message}'`);
+    }
+    render();
   }
   
   function handleNewItemSubmit() {
